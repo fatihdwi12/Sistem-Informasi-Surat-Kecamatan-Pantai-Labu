@@ -1,165 +1,289 @@
-/* Styling untuk container utama */
-.galeriSuratPage {
+.page {
   display: flex;
-  height: 100vh;
-  background-color: #f4f4f4;
+  min-height: 100vh;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
 }
 
-/* Styling Sidebar */
-.sidebar {
-  width: 250px;
-  background-color: #333;
-  color: white;
-  padding: 20px;
-}
-
-/* Styling kontainer utama untuk galeri surat */
-.container {
+.contentArea {
   flex: 1;
-  padding: 20px;
-  background-color: white;
+  margin-top: 10px;
+  margin-left: 240px;
+  padding: 24px;
+  min-width: 0;
   overflow-y: auto;
-  margin-left: 220px; /* Mengatur ruang untuk sidebar */
+  box-sizing: border-box;
 }
 
-/* Styling untuk konten Galeri Surat */
-.galeriSuratContent {
-  padding: 20px;
-  margin-left: 100px;
+.card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(8px);
 }
 
-/* Styling untuk judul */
-.galeriSuratContent h1 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Styling untuk filter form */
-.filterContainer {
+.header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.kicker {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  color: #0f172a;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.pdfBtn {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.24);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.pdfBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(99, 102, 241, 0.28);
+}
+
+.filterBar {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 14px;
+  align-items: end;
   margin-bottom: 20px;
 }
 
-.filterContainer input {
-  padding: 10px;
-  margin-right: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  width: 180px;
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
-.filterContainer button {
-  padding: 10px 15px;
-  background-color: #4caf50;
-  color: white;
+.filterGroup label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.filterGroup input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #d1d5db;
+  background: #f8fafc;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.filterGroup input:focus {
+  outline: none;
+  border-color: #6366f1;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.14);
+}
+
+.filterActions {
+  display: flex;
+  align-items: end;
+}
+
+.resetBtn {
+  background: #e2e8f0;
+  color: #334155;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 0.92rem;
+  font-weight: 700;
   cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
-.filterContainer button:hover {
-  background-color: #2f6e32;
+.resetBtn:hover {
+  background: #cbd5e1;
+  transform: translateY(-1px);
 }
 
-/* Styling untuk tabel */
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+
 .table {
   width: 100%;
+  min-width: 1280px;
   border-collapse: collapse;
-  margin-top: 20px;
-  font-size: 14px;
-  background-color: #fff;
+  background: #fff;
 }
 
 .table th,
 .table td {
-  padding: 20px;
-  border: 1px solid #ddd;
+  padding: 12px 14px;
+  border-bottom: 1px solid #edf2f7;
   text-align: left;
+  vertical-align: top;
+  font-size: 0.9rem;
 }
 
 .table th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-  color: #333;
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 750;
+  white-space: nowrap;
 }
 
-.table tr:nth-child(even) {
-  background-color: #f9f9f9;
+.table tbody tr:hover {
+  background: #f8fbff;
 }
 
-.table tr:hover {
-  background-color: #f1f1f1;
+.summaryCell {
+  max-width: 300px;
+  line-height: 1.6;
+  word-break: break-word;
 }
 
-.table td {
-  color: #555;
+.badgeSuccess,
+.badgeWarning,
+.badgeNeutral {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-transform: capitalize;
 }
 
-/* Styling untuk card jika menggunakan card untuk surat */
-.cardContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+.badgeSuccess {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
 }
 
-.card {
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  text-align: center;
-  transition: transform 0.3s;
+.badgeWarning {
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.badgeNeutral {
+  background: rgba(148, 163, 184, 0.14);
+  color: #475569;
 }
 
-.card h3 {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 10px;
+.stateBox,
+.stateError {
+  padding: 18px;
+  border-radius: 14px;
+  font-size: 0.95rem;
 }
 
-.card p {
-  font-size: 14px;
-  color: #777;
+.stateBox {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e5e7eb;
 }
 
-.card a {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 14px;
+.stateError {
+  background: rgba(254, 226, 226, 0.8);
+  color: #b91c1c;
+  border: 1px solid rgba(248, 113, 113, 0.35);
 }
 
-.card a:hover {
-  background-color: #0056b3;
-}
-
-/* Styling untuk pesan error */
-.error-message {
-  color: red;
-  font-weight: bold;
-}
-
-/* Responsif untuk layar kecil */
-@media (max-width: 768px) {
-  .filterContainer {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 1024px) {
+  .contentArea {
+    margin-left: 220px;
+    padding: 20px;
   }
 
-  .filterContainer input,
-  .filterContainer button {
+  .filterBar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filterActions {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    display: block;
+  }
+
+  .contentArea {
+    margin-left: 0;
+    padding: 14px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .pdfBtn {
     width: 100%;
-    margin-bottom: 10px;
+  }
+
+  .filterBar {
+    grid-template-columns: 1fr;
+  }
+
+  .resetBtn {
+    width: 100%;
   }
 }
