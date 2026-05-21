@@ -1,45 +1,40 @@
 import React, { useState, useEffect } from "react";
-import "./AdminDashboard.css"; // Pastikan file CSS sudah benar dan diimport
-import vector from "./Vector.png"; // Gambar yang digunakan di dalam Box
+import styles from "./AdminDashboard.module.css";
+import vector from "./Vector.png";
 
-export const Box = (): JSX.Element => {
-  // State untuk waktu dan tanggal
-  const [currentDateTime, setCurrentDateTime] = useState(""); // Tidak perlu tipe string di sini
+export const Box = () => {
+  const [currentDateTime, setCurrentDateTime] = useState("");
 
-  // Effect untuk memperbarui waktu setiap detik
   useEffect(() => {
     const updateDateTime = () => {
       const currentDate = new Date();
 
-      // Format tanggal dengan menggunakan Intl.DateTimeFormat
       const formattedDate = new Intl.DateTimeFormat("id-ID", {
-        weekday: "long", // Menampilkan nama hari
-        year: "numeric", // Tahun
-        month: "long", // Nama bulan
-        day: "numeric", // Tanggal
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
       }).format(currentDate);
 
-      setCurrentDateTime(formattedDate); // Update state dengan tanggal terformat
+      setCurrentDateTime(formattedDate);
     };
 
-    // Update waktu setiap detik
+    updateDateTime();
     const intervalId = setInterval(updateDateTime, 1000);
 
-    // Bersihkan interval saat komponen dibersihkan
     return () => clearInterval(intervalId);
-  }, []); // Dependency array kosong, karena setCurrentDateTime tidak berubah
+  }, []);
 
   return (
-    <div className="box">
-      <div className="group">
-        <div className="overlap-group">
-          <div className="overlap">
-            <div className="text-wrapper-container">
-              <div className="text-wrapper">Welcome, Administrator!</div>
-              <img className="vector" alt="Vector" src={vector} />
+    <div className={styles.box}>
+      <div className={styles.group}>
+        <div className={styles.overlapGroup}>
+          <div className={styles.overlap}>
+            <div className={styles.textWrapperContainer}>
+              <div className={styles.textWrapper}>Welcome, Administrator!</div>
+              <img className={styles.vector} alt="Vector" src={vector} />
             </div>
-            {/* Menampilkan waktu dan tanggal */}
-            <div className="time-date">{currentDateTime}</div>
+            <div className={styles.timeDate}>{currentDateTime}</div>
           </div>
         </div>
       </div>

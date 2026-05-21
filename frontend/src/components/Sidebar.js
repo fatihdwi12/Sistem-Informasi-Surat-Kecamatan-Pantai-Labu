@@ -1,38 +1,48 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaEnvelope, FaImages, FaUser, FaSignOutAlt } from "react-icons/fa";
 import "./Sidebar.css";
 
 const Sidebar = () => {
   const role = localStorage.getItem("role");
 
+  const sidebarClass =
+    role === "admin"
+      ? "sidebar sidebar-admin"
+      : role === "camat"
+        ? "sidebar sidebar-camat"
+        : "sidebar sidebar-user";
+
+  const logout = () => {
+    localStorage.removeItem("admin-token");
+    localStorage.removeItem("role");
+  };
+
   const adminSidebar = (
     <ul className="sidebar-menu">
       <li>
-        <Link to="/surat-masuk" className="sidebar-link">
+        <NavLink to="/surat-masuk" className="sidebar-link">
           <FaEnvelope className="sidebar-icon" />
           Surat Masuk
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/galeri-surat" className="sidebar-link">
-          {" "}
-          {/* Link ke Galeri Surat */}
+        <NavLink to="/galeri-surat" className="sidebar-link">
           <FaImages className="sidebar-icon" />
           Galeri Surat
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/admin/kelola-pengguna" className="sidebar-link">
+        <NavLink to="/admin/kelola-pengguna" className="sidebar-link">
           <FaUser className="sidebar-icon" />
           Kelola Pengguna
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/" className="sidebar-link">
+        <NavLink to="/" className="sidebar-link" onClick={logout}>
           <FaSignOutAlt className="sidebar-icon" />
           Logout
-        </Link>
+        </NavLink>
       </li>
     </ul>
   );
@@ -40,24 +50,22 @@ const Sidebar = () => {
   const userSidebar = (
     <ul className="sidebar-menu">
       <li>
-        <Link to="/dashboard-user" className="sidebar-link">
+        <NavLink to="/dashboard-user" className="sidebar-link">
           <FaEnvelope className="sidebar-icon" />
           Surat Disposisi
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/galeri-surat" className="sidebar-link">
-          {" "}
-          {/* Link ke Galeri Surat */}
+        <NavLink to="/galeri-surat" className="sidebar-link">
           <FaImages className="sidebar-icon" />
           Galeri Surat
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/" className="sidebar-link">
+        <NavLink to="/" className="sidebar-link" onClick={logout}>
           <FaSignOutAlt className="sidebar-icon" />
           Logout
-        </Link>
+        </NavLink>
       </li>
     </ul>
   );
@@ -65,44 +73,38 @@ const Sidebar = () => {
   const camatSidebar = (
     <ul className="sidebar-menu">
       <li>
-        <Link to="/dashboard-camat" className="sidebar-link">
+        <NavLink to="/dashboard-camat" className="sidebar-link">
           <FaEnvelope className="sidebar-icon" />
           Dashboard
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/galeri-surat" className="sidebar-link">
-          {" "}
-          {/* Link ke Galeri Surat */}
+        <NavLink to="/galeri-surat" className="sidebar-link">
           <FaImages className="sidebar-icon" />
           Galeri Surat
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link to="/" className="sidebar-link">
+        <NavLink to="/" className="sidebar-link" onClick={logout}>
           <FaSignOutAlt className="sidebar-icon" />
           Logout
-        </Link>
+        </NavLink>
       </li>
     </ul>
   );
 
   return (
-    <div
-      className={`sidebar ${
-        role === "admin"
-          ? "sidebar-admin"
-          : role === "camat"
-          ? "sidebar-camat"
-          : "sidebar-user"
-      }`}>
+    <aside className={sidebarClass}>
       <div className="sidebar-header">
-        <h2>Manajemen Surat</h2>
+        <NavLink to="/admin/dashboard" className="sidebar-brand">
+          <h2>Manajemen Surat</h2>
+        </NavLink>
       </div>
+
       {role === "admin" && adminSidebar}
       {role === "camat" && camatSidebar}
       {role === "user" && userSidebar}
-    </div>
+    </aside>
   );
 };
 

@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import { Box } from "./Box";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import styles from "./AdminDashboard.module.css";
 
 /* ---- Ikon SVG ringan (tanpa dependency) ---- */
 const MailIcon = () => (
@@ -13,11 +14,13 @@ const MailIcon = () => (
     />
   </svg>
 );
+
 const SendIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
     <path fill="currentColor" d="M2 21 23 12 2 3v7l15 2-15 2v7Z" />
   </svg>
 );
+
 const CheckIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
     <path
@@ -27,35 +30,33 @@ const CheckIcon = () => (
   </svg>
 );
 
-/* helper: pastikan angka (backend MySQL kadang kirim string) */
+/* helper: pastikan angka */
 const n = (v) => Number(v ?? 0);
 
-/* ---- Komponen kecil untuk 1 widget (horizontal) ---- */
+/* ---- StatWidget ---- */
 const StatWidget = ({ title, value, color = "primary", Icon }) => (
-  <div className={`stat-card stat-horizontal ${color}`} tabIndex={0}>
-    {/* header berwarna */}
-    <div className="stat-header">
-      <div className="icon-box">
+  <div className={`${styles.statWidget} ${styles[color]}`} tabIndex={0}>
+    <div className={styles.statHeader}>
+      <div className={styles.iconBox}>
         <Icon />
       </div>
-      <div className="stat-info">
+      <div className={styles.statInfo}>
         <h4>{title}</h4>
         <p>{n(value)}</p>
       </div>
-      <button className="stat-action" aria-label="More options">
+      <button className={styles.statAction} aria-label="More options">
         ⋯
       </button>
     </div>
 
-    {/* mini chart / sparkline */}
-    <div className="stat-chart">
+    <div className={styles.statChart}>
       <svg
-        className="spark"
+        className={styles.spark}
         viewBox="0 0 100 30"
         preserveAspectRatio="none"
         aria-hidden="true">
         <path
-          className="spark-line"
+          className={styles.sparkLine}
           d="M0,20 L15,15 L30,22 L45,10 L60,16 L75,8 L90,14 L100,9"
         />
       </svg>
@@ -75,6 +76,7 @@ const AdminDashboard = () => {
       navigate("/login");
       return;
     }
+
     axios
       .get(`http://localhost:5000/api/dashboard-admin?_=${Date.now()}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -86,53 +88,55 @@ const AdminDashboard = () => {
       .catch((err) => {
         console.error("Error fetching data:", err);
         setLoading(false);
-        if (err.response && err.response.status === 403)
+        if (err.response && err.response.status === 403) {
           navigate("/unauthorized");
+        }
       });
   }, [navigate]);
 
   return (
-    <div className="admin-dashboard">
+    <div className={styles.adminDashboard}>
       <Sidebar />
-      <div className="content">
+      <div className={styles.mainContent}>
         {loading ? (
-          <p>Loading data...</p>
+          <div className={styles.loadingPlaceholder}>
+            Memuat data dashboard...
+          </div>
         ) : (
           <>
-            <h1>Dashboard Admin</h1>
+            <header className={styles.pageHeader}>
+              <h1>Dashboard Admin</h1>
+            </header>
 
-            {/* === PANEL BOX LAMA === */}
-            <div className="panel box-panel">
-              <div className="panel-body">{data && <Box data={data} />}</div>
+            <div className={`${styles.panel} ${styles.boxPanel}`}>
+              <div className={styles.panelBody}>
+                {data && <Box data={data} />}
+              </div>
             </div>
 
             {data ? (
-              <>
-                {/* GRID WIDGET */}
-                <div className="stat-grid">
-                  {/* GANTI: widget pertama sekarang Total Surat */}
-                  <StatWidget
-                    title="Total Surat"
-                    value={data.total_surat}
-                    color="info"
-                    Icon={MailIcon}
-                  />
-                  <StatWidget
-                    title="Surat Sudah Disposisi"
-                    value={data.surat_disposisi}
-                    color="warning"
-                    Icon={SendIcon}
-                  />
-                  <StatWidget
-                    title="Sudah Ditindaklanjuti"
-                    value={data.surat_tindak_lanjut}
-                    color="danger"
-                    Icon={CheckIcon}
-                  />
-                </div>
-              </>
+              <div className={styles.statGrid}>
+                <StatWidget
+                  title="Total Surat"
+                  value={data.total_surat}
+                  color="info"
+                  Icon={MailIcon}
+                />
+                <StatWidget
+                  title="Surat Sudah Disposisi"
+                  value={data.surat_disposisi}
+                  color="warning"
+                  Icon={SendIcon}
+                />
+                <StatWidget
+                  title="Sudah Ditindaklanjuti"
+                  value={data.surat_tindak_lanjut}
+                  color="danger"
+                  Icon={CheckIcon}
+                />
+              </div>
             ) : (
-              <p>No data available.</p>
+              <div className={styles.emptyState}>Tidak ada data tersedia.</div>
             )}
           </>
         )}
