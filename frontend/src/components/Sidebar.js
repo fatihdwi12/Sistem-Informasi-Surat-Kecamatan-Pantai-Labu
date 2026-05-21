@@ -79,6 +79,12 @@ const Sidebar = () => {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/kelola-surat-camat" className="sidebar-link">
+          <FaImages className="sidebar-icon" />
+          Kelola Surat
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/galeri-surat" className="sidebar-link">
           <FaImages className="sidebar-icon" />
           Galeri Surat

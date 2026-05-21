@@ -12,6 +12,8 @@ import SuratMasukDetail from "./components/SuratMasukDetail";
 import DashboardUser from "./components/DashboardUser";
 import GaleriSurat from "./components/GaleriSurat";
 import PrivateRoute from "./components/PrivateRoute";
+import KelolaSuratCamat from "./components/KelolaSuratCamat";
+import DetailSuratCamat from "./components/DetailSuratCamat";
 
 function App() {
   return (
@@ -93,6 +95,36 @@ function App() {
             <PrivateRoute
               allowedRoles={["admin", "camat"]}
               element={<SuratMasukForm />}
+            />
+          }
+        />
+
+        <Route
+          path="/dashboard-camat"
+          element={
+            <PrivateRoute
+              allowedRoles={["admin", "camat"]}
+              element={<DashboardCamat />}
+            />
+          }
+        />
+
+        <Route
+          path="/kelola-surat-camat"
+          element={
+            <PrivateRoute
+              allowedRoles={["admin", "camat"]}
+              element={<KelolaSuratCamat />}
+            />
+          }
+        />
+
+        <Route
+          path="/kelola-surat-camat/:id"
+          element={
+            <PrivateRoute
+              allowedRoles={["admin", "camat"]}
+              element={<DetailSuratCamat />}
             />
           }
         />
