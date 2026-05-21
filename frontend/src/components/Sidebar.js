@@ -50,7 +50,7 @@ const Sidebar = () => {
   const userSidebar = (
     <ul className="sidebar-menu">
       <li>
-        <NavLink to="/dashboard-user" className="sidebar-link">
+        <NavLink to="/kelola-surat-user" className="sidebar-link">
           <FaEnvelope className="sidebar-icon" />
           Surat Disposisi
         </NavLink>

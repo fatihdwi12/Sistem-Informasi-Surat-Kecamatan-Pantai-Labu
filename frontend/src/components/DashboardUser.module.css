@@ -1,111 +1,221 @@
-/* Styling untuk wrapper utama */
-.dashboardUserWrapper {
+.page {
+  display: flex;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contentArea {
+  flex: 1;
+  margin-left: 240px;
+  padding: 50px 24px 24px;
+  box-sizing: border-box;
+  min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.contentArea::-webkit-scrollbar {
+  width: 10px;
+}
+
+.contentArea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.contentArea::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+.contentArea::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.header {
   display: flex;
   justify-content: space-between;
-  margin-left: 210px; /* Mengatur ruang untuk sidebar */
-  padding: 30px;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #edf2f7;
 }
 
-/* Styling untuk konten dashboard */
-.dashboardUserContent {
-  width: 100%;
-  max-width: 1200px; /* Membatasi lebar konten agar tidak terlalu lebar */
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 40px; /* Margin-top untuk memberi jarak antara konten dan bagian atas */
-  overflow-y: auto; /* Membuat konten dapat digulir secara vertikal */
-  max-height: 80vh; /* Membatasi tinggi kontainer dan memungkinkan scrollbar vertikal */
+.kicker {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-/* Tabel */
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #0f172a;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-/* Styling untuk header tabel dan cell */
-.table th,
-.table td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: center;
+.header p {
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 760px;
 }
 
-.table th {
-  background-color: #8379d0;
-  text-align: center;
-}
-
-/* Pesan error */
-.errorMessage {
-  color: red;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* Status Tindak Lanjut */
-.statusTindakLanjut {
-  color: #28a745; /* Hijau untuk yang sudah ditindaklanjuti */
-}
-
-.statusBelum {
-  color: #dc3545; /* Merah untuk yang belum */
-}
-
-/* Modal styling */
-.modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modalContent {
-  background-color: white;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-}
-
-/* Close button styling in modal */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
+.primaryBtn {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.18);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-/* Styling untuk tabel responsif */
+.primaryBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(99, 102, 241, 0.24);
+}
+
+.summaryRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.summaryCard {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+}
+
+.summaryCard span {
+  display: block;
+  color: #64748b;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.summaryCard strong {
+  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.noteCard {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.noteCard h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.noteCard p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.stateBox,
+.stateError {
+  padding: 18px;
+  border-radius: 14px;
+  font-size: 0.95rem;
+}
+
+.stateBox {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e5e7eb;
+}
+
+.stateError {
+  background: rgba(254, 226, 226, 0.8);
+  color: #b91c1c;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .contentArea {
+    margin-left: 220px;
+    padding: 28px 20px 20px;
+  }
+
+  .summaryRow {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
-  .table {
-    font-size: 12px;
+  .page {
+    display: block;
   }
 
-  .table th,
-  .table td {
-    padding: 8px;
+  .contentArea {
+    margin-left: 0;
+    padding: 18px 14px 14px;
+    height: auto;
+    overflow: visible;
   }
 
-  .dashboardUserContent {
+  .card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .primaryBtn {
     width: 100%;
-    padding: 15px;
+  }
+
+  .header h1 {
+    font-size: 1.45rem;
   }
 }

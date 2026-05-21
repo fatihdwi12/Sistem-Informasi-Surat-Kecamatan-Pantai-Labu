@@ -204,7 +204,9 @@ const GaleriSurat = () => {
                       <th>Isi Ringkasan</th>
                       <th>Penanggung Jawab</th>
                       <th>Status</th>
-                      <th>Status Tindak Lanjut</th>
+                      <th>
+                        Status Tindak <br /> Lanjut
+                      </th>
                     </tr>
                   </thead>
                   <tbody>

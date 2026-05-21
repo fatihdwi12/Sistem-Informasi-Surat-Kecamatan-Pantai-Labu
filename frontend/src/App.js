@@ -14,6 +14,7 @@ import GaleriSurat from "./components/GaleriSurat";
 import PrivateRoute from "./components/PrivateRoute";
 import KelolaSuratCamat from "./components/KelolaSuratCamat";
 import DetailSuratCamat from "./components/DetailSuratCamat";
+import KelolaSuratUser from "./components/KelolaSuratUser";
 
 function App() {
   return (
@@ -56,6 +57,16 @@ function App() {
           path="/dashboard-user"
           element={
             <PrivateRoute allowedRoles={["user"]} element={<DashboardUser />} />
+          }
+        />
+
+        <Route
+          path="/kelola-surat-user"
+          element={
+            <PrivateRoute
+              allowedRoles={["user"]}
+              element={<KelolaSuratUser />}
+            />
           }
         />
 
