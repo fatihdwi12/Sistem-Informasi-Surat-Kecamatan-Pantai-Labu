@@ -1,0 +1,133 @@
+/* Styling untuk sidebar */
+.sidebar {
+  width: 210px;
+  height: 100vh;
+  background: linear-gradient(180deg, #ffffff, #f9f9f9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: rgb(52, 46, 46);
+  padding-top: 30px;
+  font-family: "Arial", sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 2px 0 10px rgba(27, 22, 22, 0.1);
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar-header h2 {
+  font-size: 1.5em;
+  font-weight: 750;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  margin: 15px 0;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  color: rgb(16, 111, 159);
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #9bc5f0;
+  padding-left: 30px; /* Efek padding untuk memberi kesan interaktif */
+}
+
+.sidebar-icon {
+  margin-right: 15px; /* Spasi antara ikon dan teks */
+  font-size: 1.4em;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-link:hover .sidebar-icon {
+  transform: scale(1.2); /* Efek zoom pada ikon saat hover */
+}
+
+/* Sidebar untuk Admin */
+.sidebar-admin .sidebar-menu li {
+  margin: 20px 0; /* Menambahkan jarak antar menu */
+}
+
+.sidebar-admin .sidebar-link {
+  font-size: 1rem; /* Menyesuaikan ukuran font untuk Admin */
+}
+
+.sidebar-admin .sidebar-link:hover {
+  background-color: #6fa3e8; /* Warna hover lebih gelap untuk Admin */
+}
+
+.sidebar-admin .sidebar-header h2 {
+  color: #004b80; /* Mengubah warna header untuk Admin */
+}
+
+/* Sidebar untuk User */
+.sidebar-user .sidebar-menu li {
+  margin: 20px 0; /* Menambahkan jarak antar menu */
+}
+
+.sidebar-user .sidebar-link {
+  font-size: 1rem; /* Menyesuaikan ukuran font untuk User */
+}
+
+.sidebar-user .sidebar-link:hover {
+  background-color: #68b0e3; /* Warna hover lebih gelap untuk User */
+}
+
+.sidebar-user .sidebar-header h2 {
+  color: #006f95; /* Mengubah warna header untuk User */
+}
+
+/* Styling Responsif */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar-menu li {
+    margin: 10px 0; /* Menyesuaikan margin untuk tampilan mobile */
+  }
+
+  .sidebar-link {
+    padding: 10px 15px;
+  }
+}
+
+/* Sidebar untuk Camat */
+.sidebar-camat .sidebar-header h2 {
+  color: #1a1b1a; /* Warna header untuk camat */
+}
+
+.sidebar-camat .sidebar-link:hover {
+  background-color: #a8befa; /* Warna hover untuk camat */
+}
+
+/* Pengaturan khusus lainnya untuk camat jika dibutuhkan */
+
+/* Menghapus underline dari <Link> di dalam sidebar */
+.sidebar-header a {
+  text-decoration: none; /* Menghapus underline pada <Link> */
+}
+
+/* Tambahan untuk memastikan <h2> tidak terpengaruh */
+.sidebar-header h2 {
+  margin: 0; /* Menghapus margin agar lebih rapi */
+}

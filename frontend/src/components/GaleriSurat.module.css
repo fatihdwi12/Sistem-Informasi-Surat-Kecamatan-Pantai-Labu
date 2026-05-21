@@ -1,0 +1,165 @@
+/* Styling untuk container utama */
+.galeriSuratPage {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Styling Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+/* Styling kontainer utama untuk galeri surat */
+.container {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  overflow-y: auto;
+  margin-left: 220px; /* Mengatur ruang untuk sidebar */
+}
+
+/* Styling untuk konten Galeri Surat */
+.galeriSuratContent {
+  padding: 20px;
+  margin-left: 100px;
+}
+
+/* Styling untuk judul */
+.galeriSuratContent h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Styling untuk filter form */
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filterContainer input {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 180px;
+}
+
+.filterContainer button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.filterContainer button:hover {
+  background-color: #2f6e32;
+}
+
+/* Styling untuk tabel */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 20px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #333;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table td {
+  color: #555;
+}
+
+/* Styling untuk card jika menggunakan card untuk surat */
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #777;
+}
+
+.card a {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.card a:hover {
+  background-color: #0056b3;
+}
+
+/* Styling untuk pesan error */
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .filterContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filterContainer input,
+  .filterContainer button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

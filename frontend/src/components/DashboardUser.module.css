@@ -1,0 +1,111 @@
+/* Styling untuk wrapper utama */
+.dashboardUserWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 210px; /* Mengatur ruang untuk sidebar */
+  padding: 30px;
+}
+
+/* Styling untuk konten dashboard */
+.dashboardUserContent {
+  width: 100%;
+  max-width: 1200px; /* Membatasi lebar konten agar tidak terlalu lebar */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 40px; /* Margin-top untuk memberi jarak antara konten dan bagian atas */
+  overflow-y: auto; /* Membuat konten dapat digulir secara vertikal */
+  max-height: 80vh; /* Membatasi tinggi kontainer dan memungkinkan scrollbar vertikal */
+}
+
+/* Tabel */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Styling untuk header tabel dan cell */
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.table th {
+  background-color: #8379d0;
+  text-align: center;
+}
+
+/* Pesan error */
+.errorMessage {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Status Tindak Lanjut */
+.statusTindakLanjut {
+  color: #28a745; /* Hijau untuk yang sudah ditindaklanjuti */
+}
+
+.statusBelum {
+  color: #dc3545; /* Merah untuk yang belum */
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalContent {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Close button styling in modal */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Styling untuk tabel responsif */
+@media (max-width: 768px) {
+  .table {
+    font-size: 12px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+  }
+
+  .dashboardUserContent {
+    width: 100%;
+    padding: 15px;
+  }
+}

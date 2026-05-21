@@ -1,0 +1,136 @@
+/* Styling untuk wrapper utama */
+.dashboardCamatWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 210px; /* Mengatur ruang untuk sidebar */
+  padding: 30px;
+  height: 90vh; /* Mengatur agar tinggi halaman penuh */
+  overflow: hidden; /* Menghapus scroll bar di luar kontainer */
+}
+
+/* Styling untuk konten dashboard */
+.dashboardCamatContent {
+  max-width: 1200px; /* Membatasi lebar konten agar tidak terlalu lebar */
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Membuat konten mengambil sisa ruang */
+  margin-top: 40px; /* Margin-top untuk memberi jarak antara konten dan bagian atas */
+  overflow-y: auto; /* Membuat konten dapat digulir secara vertikal */
+  max-height: 80vh; /* Membatasi tinggi kontainer dan memungkinkan scrollbar vertikal */
+  /* Mengatur tinggi maksimum agar scroll hanya di dalam kontainer */
+}
+
+/* Styling untuk tabel */
+.table {
+  width: 100%;
+  font-size: 14px;
+  border-collapse: collapse;
+}
+
+.table th {
+  color: #0e0e0e;
+}
+
+.table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Pesan error */
+.errorMessage {
+  color: red;
+  font-weight: bold;
+}
+
+/* Styling Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 35px;
+  border-radius: 8px;
+  width: 50%; /* Mengatur lebar modal */
+  max-width: 600px; /* Memastikan modal tidak terlalu lebar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modalContent h3 {
+  margin-top: 0;
+}
+
+.status {
+  color: #28a745;
+}
+
+.statusBelum {
+  color: #dc3545; /* Merah untuk yang belum */
+}
+
+/* Responsif untuk tampilan mobile */
+@media (max-width: 768px) {
+  .dashboardCamatWrapper {
+    flex-direction: column;
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .dashboardCamatContent {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Tabel lebih responsif */
+  .table {
+    font-size: 12px;
+  }
+
+  .modalContent {
+    width: 80%; /* Modal lebih lebar pada perangkat kecil */
+  }
+}
+
+/* Styling untuk status disposisi */
+.statusBelum {
+  color: red;
+  font-weight: bold;
+}
+
+.statusDisposisi {
+  color: green;
+  font-weight: bold;
+}
+
+/* Styling untuk tombol status disposisi */
+.statusBtn {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.statusBtnBelum {
+  background-color: red;
+  color: white;
+}
+
+.statusBtnDisposisi {
+  background-color: green;
+  color: white;
+}
